@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
+    <title>Know the Weather</title>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
@@ -11,18 +11,36 @@
       crossorigin="anonymous"
     />
     <link rel="shortcut icon" href="./4geeks.ico" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
+      <div class="row" style="height:100vh;">
+        <div class="col-2 p-4 bg-primary bg-gradient shadow-lg">
+          <h1 class="text-light">Weatherbit.io</h1>
+          <form onsubmit="return false" class="mt-4 d-grid gap-3">
+            <input
+              type="text"
+              class="form-control-lg border border-info"
+              id="lat"
+              placeholder="latitute"
+            />
+            <input
+              type="text"
+              class="form-control-lg border border-info"
+              id="lon"
+              placeholder="longitude"
+            />
+            <button
+              type="submit"
+              class="btn-lg btn-light"
+              onclick="getWeather()"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+        <div id="main-result" class="col-10 p-4 my-auto"></div>
       </div>
     </div>
   </body>
